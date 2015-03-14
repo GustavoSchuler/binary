@@ -1,0 +1,183 @@
+#new{
+	position: absolute;
+	top: 28%;
+	left: 45.5%;
+}
+
+#rules{
+	position: absolute;
+	top: 93%;
+	left: 46.5%;
+}
+
+#score{
+	font-family: tahoma;
+	font-size: 20px;
+	position: absolute;
+	top: 20%;
+	left: 75%;
+}
+
+#number{
+	font-family: tahoma;
+	font-size: 36px;
+	color: #009DFD;
+	position: absolute;
+	top: 38%;
+	left: 46.8%;
+}
+
+#oito{
+	position: absolute;
+	top: 55%;
+	left: 30.8%;
+	width: 30px;
+	height: 40px;
+	font-family: tahoma;
+	font-size: 20px;
+	text-align: center;
+}
+
+#sete{
+	position: absolute;
+	top: 55%;
+	left: 35.8%;
+	width: 30px;
+	height: 40px;
+	font-family: tahoma;
+	font-size: 20px;
+	text-align: center;
+}
+
+#seis{
+	position: absolute;
+	top: 55%;
+	left: 40.8%;
+	width: 30px;
+	height: 40px;
+	font-family: tahoma;
+	font-size: 20px;
+	text-align: center;
+}
+
+#cinco{
+	position: absolute;
+	top: 55%;
+	left: 45.8%;
+	width: 30px;
+	height: 40px;
+	font-family: tahoma;
+	font-size: 20px;
+	text-align: center;
+}
+
+#quatro{
+	position: absolute;
+	top: 55%;
+	left: 50.8%;
+	width: 30px;
+	height: 40px;
+	font-family: tahoma;
+	font-size: 20px;
+	text-align: center;
+}
+
+#tres{
+	position: absolute;
+	top: 55%;
+	left: 55.8%;
+	width: 30px;
+	height: 40px;
+	font-family: tahoma;
+	font-size: 20px;
+	text-align: center;
+}
+
+#dois{
+	position: absolute;
+	top: 55%;
+	left: 60.8%;
+	width: 30px;
+	height: 40px;
+	font-family: tahoma;
+	font-size: 20px;
+	text-align: center;
+}
+
+#um{
+	position: absolute;
+	top: 55%;
+	left: 65.8%;
+	width: 30px;
+	height: 40px;
+	font-family: tahoma;
+	font-size: 20px;
+	text-align: center;
+}
+
+#switch1 {
+	position: absolute;
+	top: 65%;
+	left: 30%;
+}
+
+#switch2 {
+	position: absolute;
+	top: 65%;
+	left: 35%;
+}
+
+#switch3 {
+	position: absolute;
+	top: 65%;
+	left: 40%;
+}
+
+#switch4 {
+	position: absolute;
+	top: 65%;
+	left: 45%;
+}
+
+#switch5 {
+	position: absolute;
+	top: 65%;
+	left: 50%;
+}
+
+#switch6 {
+	position: absolute;
+	top: 65%;
+	left: 55%;
+}
+
+#switch7 {
+	position: absolute;
+	top: 65%;
+	left: 60%;
+}
+
+#switch8 {
+	position: absolute;
+	top: 65%;
+	left: 65%;
+}
+
+#logo {
+	position: absolute;
+	top: 10%;
+	left: 43.5%;
+}
+
+#regras{
+	font-family: tahoma;
+	font-size: 12px;
+	position: absolute;
+	top: 90%;
+	left: 36.5%;
+}
+
+#desenv{
+	font-family: tahoma;
+	font-size: 10px;
+}
