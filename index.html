@@ -1,0 +1,223 @@
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="modelo.css">
+	</head>
+
+	<body>
+		<img id='logo' src="Binary_main.png"/>
+		<button id="new" onclick="zeraTudo(1)">New Game</button> 
+		<button id="rules" onclick="rules()">Rules</button>
+		<div id="pontos">
+			<span id="score">Score 0<span/>
+		</div>
+		<div id="game">
+			<span id="number">000<span/>
+		</div>
+		<div id="text">
+			<input type="text" id="oito" value="0" disabled/>
+			<input type="text" id="sete" value="0" disabled/>
+			<input type="text" id="seis" value="0" disabled/>
+			<input type="text" id="cinco" value="0" disabled/>
+			<input type="text" id="quatro" value="0" disabled/>
+			<input type="text" id="tres" value="0" disabled/>
+			<input type="text" id="dois" value="0" disabled/>
+			<input type="text" id="um" value="0" disabled/>
+		</div>
+		<img id='switch1' src="Off.png"/>
+		<img id='switch2' src="Off.png"/>
+		<img id='switch3' src="Off.png"/>
+		<img id='switch4' src="Off.png"/>
+		<img id='switch5' src="Off.png"/>
+		<img id='switch6' src="Off.png"/>
+		<img id='switch7' src="Off.png"/>
+		<img id='switch8' src="Off.png"/>
+		<span id="regras">Tente acertar o número binário referente ao decimal em azul!<span/>
+	</body>
+	<script type="text/javascript">
+
+		var estadoSw1 = 0;
+		var estadoSw2 = 0;
+		var estadoSw3 = 0;
+		var estadoSw4 = 0;
+		var estadoSw5 = 0;
+		var estadoSw6 = 0;
+		var estadoSw7 = 0;
+		var estadoSw8 = 0;
+		var tentativas = 0;
+
+		var alteraEstadoBotao = function(id, idText){
+
+			document.getElementById(id).onclick = function(){
+
+				if (document.getElementById(id).id == "switch1"){
+					var estado = estadoSw1;
+				}else if (document.getElementById(id).id == "switch2"){
+					var estado = estadoSw2;
+				}else if (document.getElementById(id).id == "switch3"){
+					var estado = estadoSw3;
+				}else if (document.getElementById(id).id == "switch4"){
+					var estado = estadoSw4;
+				}else if (document.getElementById(id).id == "switch5"){
+					var estado = estadoSw5;
+				}else if (document.getElementById(id).id == "switch6"){
+					var estado = estadoSw6;
+				}else if (document.getElementById(id).id == "switch7"){
+					var estado = estadoSw7;
+				}else if (document.getElementById(id).id == "switch8"){
+					var estado = estadoSw8;
+				}
+
+				if (estado == 0){
+					alteraSwitch(id, "On.png");
+					alteraEstado(id, "1", idText);
+				}else{
+					alteraSwitch(id, "Off.png");
+					alteraEstado(id, "0", idText);
+				}
+
+				validaAcertos();
+
+			}
+
+		}
+
+		var alteraSwitch = function(id, imagem){
+
+			document.getElementById(id).src=imagem;
+
+		}
+
+		var alteraEstado = function(id, estado, idText){
+          
+			if (document.getElementById(id) == switch1){
+				estadoSw1 = estado;
+			}else if (document.getElementById(id) == switch2){
+				estadoSw2 = estado;
+			}else if (document.getElementById(id) == switch3){
+				estadoSw3 = estado;
+			}else if (document.getElementById(id) == switch4){
+				estadoSw4 = estado;
+			}else if (document.getElementById(id) == switch5){
+				estadoSw5 = estado;
+			}else if (document.getElementById(id) == switch6){
+				estadoSw6 = estado;
+			}else if (document.getElementById(id) == switch7){
+				estadoSw7 = estado;
+			}else if (document.getElementById(id) == switch8){
+				estadoSw8 = estado;
+			}
+
+			document.getElementById(idText).value = estado.toString();
+
+		}
+
+		var sorteiaNumero = function(menor, maior){
+
+		    numPossibilidades = maior - menor;
+		    aleat = Math.random() * numPossibilidades;
+		    aleat = Math.floor(aleat);
+		    aleat = parseInt(menor) + aleat;
+
+		    if (aleat < 10){
+		    	number = "00" + aleat.toString();
+			}else if (aleat >= 10 && aleat < 100){
+				number = "0" + aleat.toString();
+		    }else{
+		    	number = aleat.toString();
+		    }
+
+		    document.getElementById("number").innerHTML = number; 
+
+		}
+
+		var validaAcertos = function(){
+
+			var numero = "zer0"
+			numero = document.getElementById("oito").value +  document.getElementById("sete").value + 
+					 document.getElementById("seis").value +  document.getElementById("cinco").value + 
+					 document.getElementById("quatro").value + document.getElementById("tres").value + 
+					 document.getElementById("dois").value + document.getElementById("um").value;
+			numero = parseInt(numero, 2);
+
+			number = document.getElementById("number").innerHTML;
+			number = parseInt(number);
+
+			if (number == numero){
+				somaPontos(100);
+				alert("Parabéns!");
+				zeraTudo(0);
+			}else{
+				tentativas += 1;
+				if (tentativas >= 8){
+					somaPontos(-10);
+				}
+			}
+
+		}
+
+		var rules = function(){
+
+			alert("Você possui 8 tentativas. Cada acerto vale 100 pontos. Em cada tentativa extra você perde 10 pontos.");
+
+		}
+
+		var somaPontos = function(pontos){
+
+			pontuacao = parseInt(document.getElementById("score").innerHTML.substr(6));
+			pontuacao = pontuacao + pontos;
+
+			document.getElementById("score").innerHTML = "Score " + pontuacao.toString();
+
+		}
+
+		var zeraTudo = function(novo){
+
+			if (novo == 1){
+				document.getElementById("score").innerHTML = "Score 0";
+			}
+			document.getElementById("number").innerHTML = "00";
+
+			document.getElementById("oito").value = "0";
+			document.getElementById("sete").value = "0";
+			document.getElementById("seis").value = "0";
+			document.getElementById("cinco").value = "0";
+			document.getElementById("quatro").value = "0";
+			document.getElementById("tres").value = "0";
+			document.getElementById("dois").value = "0";
+			document.getElementById("um").value = "0";
+
+			document.getElementById("switch1").src = "Off.png";
+			document.getElementById("switch2").src = "Off.png";
+			document.getElementById("switch3").src = "Off.png";
+			document.getElementById("switch4").src = "Off.png";
+			document.getElementById("switch5").src = "Off.png";
+			document.getElementById("switch6").src = "Off.png";
+			document.getElementById("switch7").src = "Off.png";
+			document.getElementById("switch8").src = "Off.png";
+
+			tentativas = 0;
+			sorteiaNumero(001, 255);
+
+		}
+
+
+		window.onload = function(){
+
+			zeraTudo(1);
+
+			alteraEstadoBotao("switch1", "oito");
+			alteraEstadoBotao("switch2", "sete");
+			alteraEstadoBotao("switch3", "seis");
+			alteraEstadoBotao("switch4", "cinco");
+			alteraEstadoBotao("switch5", "quatro");
+			alteraEstadoBotao("switch6", "tres");
+			alteraEstadoBotao("switch7", "dois");
+			alteraEstadoBotao("switch8", "um");
+
+		}
+
+	</script>
+
+</html>
